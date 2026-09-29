@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+class ExceptionLineTooLong extends Throwable
+{
+
+	public ExceptionLineTooLong() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public ExceptionLineTooLong(String message, Throwable cause, boolean enableSuppression,
+			boolean writableStackTrace) {
+		super(message, cause, enableSuppression, writableStackTrace);
+		// TODO Auto-generated constructor stub
+	}
+
+	public ExceptionLineTooLong(String message, Throwable cause) {
+		super(message, cause);
+		// TODO Auto-generated constructor stub
+	}
+
+	public ExceptionLineTooLong(String message) {
+		super(message);
+		// TODO Auto-generated constructor stub
+	}
+
+	public ExceptionLineTooLong(Throwable cause) {
+		super(cause);
+		// TODO Auto-generated constructor stub
+	}
+	
+}
+public class StringLength {
+	
+
+public static void getString() throws ExceptionLineTooLong
+{
+	Scanner sc=new Scanner(System.in);
+	System.out.print("Enter the string");
+	String str=sc.nextLine();
+	if(str.length()>8)
+	{
+		throw new ExceptionLineTooLong("Thestrings is too long");
+	}
+}
+	public static void main(String[] args) {
+		
+		
+		try {
+			getString();
+		} catch (ExceptionLineTooLong e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+}

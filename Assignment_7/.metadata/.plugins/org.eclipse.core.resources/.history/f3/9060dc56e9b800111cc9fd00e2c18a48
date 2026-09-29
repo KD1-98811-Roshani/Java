@@ -1,0 +1,93 @@
+import java.awt.print.Printable;
+import java.util.Scanner;
+
+class NegativeDiameterException extends Throwable
+{
+
+	public NegativeDiameterException() {
+		super();
+	}
+
+	public NegativeDiameterException(String message, Throwable cause, boolean enableSuppression,
+			boolean writableStackTrace) {
+		super(message, cause, enableSuppression, writableStackTrace);
+		// TODO Auto-generated constructor stub
+	}
+
+	public NegativeDiameterException(String message, Throwable cause) {
+		super(message, cause);
+		// TODO Auto-generated constructor stub
+	}
+
+	public NegativeDiameterException(String message) {
+		super(message);
+		// TODO Auto-generated constructor stub
+	}
+
+	public NegativeDiameterException(Throwable cause) {
+		super(cause);
+		// TODO Auto-generated constructor stub
+	}
+	
+}
+public class Circle {
+private double myX ;
+private double myY; 
+private double Diameter;
+	public Circle() {
+	super();
+	this.myX = 0;
+	this.myY = 0;
+	Diameter = 100;
+}
+	public double getMyX() {
+		return myX;
+	}
+	public void setMyX(double myX) {
+		this.myX = myX;
+	}
+	public double getMyY() {
+		return myY;
+	}
+	public void setMyY(double myY) {
+		this.myY = myY;
+	}
+	public double getDiameter() {
+		return Diameter;
+	}
+	public void setDiameter(double diameter) {
+		Diameter = diameter;
+	}
+	public  void print() {
+		System.out.println("Diameter: "+Diameter);
+		System.out.println("myX: "+myX);
+		System.out.println("myY"+myY);
+	}
+	public void circleValue() throws NegativeDiameterException
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter Diameter: ");
+		Diameter=sc.nextDouble();
+		if(Diameter<0)
+			throw new NegativeDiameterException("Diameter is negative");
+ 		System.out.print("Enter myX: ");
+ 		myX=sc.nextDouble();
+		System.out.print("Enter myY: ");
+		myY=sc.nextDouble();
+		
+		
+	}
+	
+	
+	public static void main(String[] args) throws NegativeDiameterException {
+		Circle c=new Circle();
+		c.print();
+		try {
+			c.circleValue();
+		} catch (NegativeArraySizeException e) {
+			System.out.println(e.getMessage());
+		}
+		
+	}
+
+}
